@@ -7,25 +7,28 @@ export const MenuCuboNav = styled.nav`
   flex: 1;
   ul {
     display: inline-flex;
-    flex-direction: row;
     list-style: none;
   }
   li {
-    display: list-item;
-    text-align: center;
-    font-size: 14px;
-    border-radius: 4px;
-    text-transform: uppercase;
-    padding: 15px 0;
+    padding: 15px 0px;
   }
 
   a {
+    display: inline-block;
+    font-size: 14px;
+    text-transform: uppercase;
     text-decoration: none;
     color: #768c93;
-    line-height: 25px;
-    padding: 15px;
+    /* padding: 10px 22px; */
+    width: 82px;
+    max-width: 82px;
+    height: 35px;
+    max-height: 35px;
+    text-align: center;
+    line-height: 30px;
   }
   a:hover {
+    border-radius: 4px;
     background-color: #cb733d;
     color: #fff;
     font-weight: bolder;
