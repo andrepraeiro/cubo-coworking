@@ -4,22 +4,10 @@ import { MenuCuboNav } from './styles'
 
 const MenuCubo = () => (
   <MenuCuboNav>
-    <nav>
-      <ul>
-        <li>
-          <a href="#">Home</a>
-        </li>
-        <li>
-          <a href="#">Menu 1</a>
-        </li>
-        <li>
-          <a href="#">Menu 2</a>
-        </li>
-        <li>
-          <a href="#">Menu 3</a>
-        </li>
-      </ul>
-    </nav>
+    <a href="#">Home</a>
+    <a href="#">Menu 1</a>
+    <a href="#">Menu 2</a>
+    <a href="#">Menu 3</a>
   </MenuCuboNav>
 )
 

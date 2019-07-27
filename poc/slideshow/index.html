@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <script>
+      function deactiveItem(i) {
+        document.getElementsByClassName('dot')[i].classList.remove('dot-active')
+        document.getElementsByClassName('slide')[i].classList.remove('active')
+      }
+      function deactiveAll() {
+        deactiveItem(0)
+        deactiveItem(1)
+        deactiveItem(2)
+      }
+      function activeItem(i) {
+        deactiveAll()
+        document.getElementsByClassName('dot')[i].className += ' dot-active'
+        document.getElementsByClassName('slide')[i].className += ' active'
+      }
+    </script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        background-color: #fff;
+        font-family: 'PT Sans', sans-serif;
+        box-sizing: border-box;
+      }
+
+      .slideshow-container {
+        display: flex;
+        align-content: center;
+        justify-content: center;
+        max-width: 100%;
+        height: 510px;
+        max-height: 510px;
+      }
+
+      img {
+        max-width: 100%;
+        height: 510px;
+        /* max-height: 100%;
+        align-self: center;
+        justify-self: center;  */
+        /* max-height: 537px;
+        height: 537px; */
+      }
+
+      .slide {
+        display: none;
+      }
+
+      .active {
+        display: block;
+      }
+
+      .dots {
+        display: flex;
+        align-content: center;
+        justify-content: center;
+      }
+      /* The dots/bullets/indicators */
+      .dot {
+        cursor: pointer;
+        height: 15px;
+        width: 15px;
+        margin: 0 2px;
+        background-color: #000;
+        border: 2px solid #bbb;
+        border-radius: 100%;
+        display: inline-block;
+        transition: background-color 0.6s ease;
+      }
+
+      .dot:hover {
+        background-color: #717171;
+      }
+
+      .dot-active {
+        /* background-color: #717171; */
+        border: 2px solid #e76924;
+      }
+
+      .fade {
+        -webkit-animation-name: fade;
+        -webkit-animation-duration: 1.5s;
+        animation-name: fade;
+        animation-duration: 1.5s;
+      }
+      @-webkit-keyframes fade {
+        from {
+          opacity: 0.4;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      @keyframes fade {
+        from {
+          opacity: 0.4;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      .slide1-text-box {
+        float: left;
+        position: absolute;
+        background-color: #e76924;
+        color: #fff;
+        width: 350px;
+        height: 200px;
+        top: 170px;
+        left: 18%;
+        padding: 40px 30px;
+        line-height: 25px;
+      }
+      .slide1-text-box > * {
+        background-color: #e76924;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="slideshow-container">
+      <div class="slide active fade">
+        <img src="../../src/images/slide1.png" alt="slide1" />
+        <div class="slide1-text-box">
+          <h2>Lorem ipsum aliquam</h2>
+          <br />
+          <p>
+            Aenean luctus sit leo sollicitudin himenaeos, scelerisque hendrerit
+            etiam mi accumsan tempor mattis sagittis.
+          </p>
+        </div>
+      </div>
+      <div class="slide fade">
+        <img src="../../src/images/ballon-slide2.png" alt="slide2" />
+      </div>
+      <div class="slide fade">
+        <img src="../../src/images/girl-slide3.png" alt="slide3" />
+      </div>
+    </div>
+    <div class="dots">
+      <span
+        class="dot dot-active"
+        onclick="activeItem(0); return false;"
+      ></span>
+      <span class="dot" onclick="activeItem(1); return false;"></span>
+      <span class="dot" onclick="activeItem(2); return false;"></span>
+    </div>
+  </body>
+</html>

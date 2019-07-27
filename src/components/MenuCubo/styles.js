@@ -1,35 +1,28 @@
 import styled from 'styled-components'
 
 export const MenuCuboNav = styled.nav`
-  position: relative;
-  color: #768c93;
-  text-align: right;
-  flex: 1;
-  ul {
-    display: inline-flex;
-    list-style: none;
-  }
-  li {
-    padding: 15px 0px;
-  }
+  display: flex;
+  width: 336px;
+  height: 48px;
+  align-items: center;
+  justify-content: space-between;
 
   a {
-    display: inline-block;
-    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-transform: uppercase;
     text-decoration: none;
-    color: #768c93;
-    /* padding: 10px 22px; */
+    color: rgba(0, 0, 0, 0.6);
     width: 82px;
     max-width: 82px;
     height: 35px;
     max-height: 35px;
-    text-align: center;
-    line-height: 30px;
+    transition: 0.3s;
   }
   a:hover {
     border-radius: 4px;
-    background-color: #cb733d;
+    background-color: #e76924;
     color: #fff;
     font-weight: bolder;
   }
