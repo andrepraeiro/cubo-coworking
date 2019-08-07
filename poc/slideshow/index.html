@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Document</title>
     <script>
+      var currentSlide = -1
       function deactiveItem(i) {
         document.getElementsByClassName('dot')[i].classList.remove('dot-active')
         document.getElementsByClassName('slide')[i].classList.remove('active')
@@ -19,6 +20,22 @@
         deactiveAll()
         document.getElementsByClassName('dot')[i].className += ' dot-active'
         document.getElementsByClassName('slide')[i].className += ' active'
+        setCurrentSlide(i)
+      }
+
+      function setCurrentSlide(i) {
+        currentSlide = i
+      }
+
+      function plusSlide(i) {
+        var slideIndex = currentSlide + i
+        if (slideIndex > 2) {
+          slideIndex = 0
+        }
+        if (slideIndex < 0) {
+          slideIndex = 2
+        }
+        activeItem(slideIndex)
       }
     </script>
     <style>
@@ -31,22 +48,15 @@
       }
 
       .slideshow-container {
-        display: flex;
-        align-content: center;
-        justify-content: center;
         max-width: 100%;
         height: 510px;
         max-height: 510px;
+        margin: auto;
       }
 
       img {
         max-width: 100%;
         height: 510px;
-        /* max-height: 100%;
-        align-self: center;
-        justify-self: center;  */
-        /* max-height: 537px;
-        height: 537px; */
       }
 
       .slide {
@@ -61,6 +71,7 @@
         display: flex;
         align-content: center;
         justify-content: center;
+        margin: 20px 0;
       }
       /* The dots/bullets/indicators */
       .dot {
@@ -72,11 +83,12 @@
         border: 2px solid #bbb;
         border-radius: 100%;
         display: inline-block;
-        transition: background-color 0.6s ease;
+        transition: 0.6s ease;
       }
 
       .dot:hover {
         background-color: #717171;
+        transform: scale(1.2);
       }
 
       .dot-active {
@@ -108,11 +120,9 @@
         }
       }
 
-      .slide1-text-box {
+      .slide-text-box {
         float: left;
         position: absolute;
-        background-color: #e76924;
-        color: #fff;
         width: 350px;
         height: 200px;
         top: 170px;
@@ -120,18 +130,99 @@
         padding: 40px 30px;
         line-height: 25px;
       }
+
+      .slide-text-box > h2 {
+        margin-bottom: 10px;
+        text-transform: uppercase;
+      }
+
+      .slide1-text-box {
+        background-color: #e76924;
+        color: #fff;
+      }
+
       .slide1-text-box > * {
         background-color: #e76924;
+        color: #fff;
+      }
+
+      .slide2-text-box {
+        background-color: transparent;
+        color: #104286;
+      }
+
+      .slide2-text-box > * {
+        background-color: transparent;
+        color: #104286;
+      }
+
+      .leia-mais-slide2 {
+        cursor: pointer;
+        width: 150px;
+        background-color: #104286;
+        color: #fff;
+        text-align: center;
+        text-transform: uppercase;
+        font-weight: bold;
+        padding: 10px 20px 10px 20px;
+        margin-top: 30px;
+        transition: 0.6s ease;
+      }
+
+      .leia-mais-slide2:hover {
+        background-color: #e76924;
+        color: #fff;
+      }
+
+      .slide3-text-box {
+        background-color: transparent;
+      }
+      .slide3-text-box > h2 {
+        background-color: #104286;
+        color: #fff;
+        width: fit-content;
+        width: -moz-max-content;
+        padding: 5px 15px;
+      }
+      .navigators {
+        top: 40%;
+        position: absolute;
+        width: 100%;
+        margin: auto;
+        padding: 0 15%;
+      }
+      .next,
+      .prev {
+        cursor: pointer;
+        position: absolute;
+        color: #fff;
+        font-weight: bold;
+        font-size: 18px;
+        background: transparent;
+        transition: 0.6s ease;
+        padding: 10px;
+        border-radius: 3px 0 0 3px;
+        user-select: none;
+      }
+
+      .next {
+        right: 15%;
+        border-radius: 0 3px 3px 0;
+      }
+
+      .prev:hover,
+      .next:hover {
+        background-color: rgba(0, 0, 0, 0.2);
+        transform: scale(1.5);
       }
     </style>
   </head>
   <body>
     <div class="slideshow-container">
-      <div class="slide active fade">
+      <div class="slide fade">
         <img src="../../src/images/slide1.png" alt="slide1" />
-        <div class="slide1-text-box">
-          <h2>Lorem ipsum aliquam</h2>
-          <br />
+        <div class="slide-text-box slide1-text-box">
+          <h2>Lorem ipsum dolor</h2>
           <p>
             Aenean luctus sit leo sollicitudin himenaeos, scelerisque hendrerit
             etiam mi accumsan tempor mattis sagittis.
@@ -140,9 +231,28 @@
       </div>
       <div class="slide fade">
         <img src="../../src/images/ballon-slide2.png" alt="slide2" />
+        <div class="slide-text-box slide2-text-box">
+          <h2>Lorem ipsum dolor</h2>
+          <p>
+            Aenean luctus sit leo sollicitudin himenaeos, scelerisque hendrerit
+            etiam mi accumsan tempor mattis sagittis.
+          </p>
+          <div class="leia-mais-slide2">
+            Leia Mais
+          </div>
+        </div>
       </div>
       <div class="slide fade">
         <img src="../../src/images/girl-slide3.png" alt="slide3" />
+        <div class="slide-text-box slide3-text-box">
+          <h2>aenc donec ut en</h2>
+          <h2>tempor accor ol</h2>
+          <h2>eges yagi</h2>
+        </div>
+      </div>
+      <div class="navigators">
+        <a class="prev" onclick="plusSlide(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlide(1)">&#10095;</a>
       </div>
     </div>
     <div class="dots">
@@ -153,5 +263,13 @@
       <span class="dot" onclick="activeItem(1); return false;"></span>
       <span class="dot" onclick="activeItem(2); return false;"></span>
     </div>
+    <script>
+      showSlides()
+
+      function showSlides() {
+        plusSlide(1)
+        // setTimeout(showSlides, 10000)
+      }
+    </script>
   </body>
 </html>
